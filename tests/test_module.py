@@ -1,7 +1,7 @@
+# %%
+import minitorch
 import pytest
 from hypothesis import given
-
-import minitorch
 
 from .strategies import med_ints, small_floats
 
@@ -42,6 +42,7 @@ class ModuleA4(minitorch.Module):
         self.p3 = minitorch.Parameter(15)
 
 
+# %%
 @pytest.mark.task0_4
 def test_stacked_demo() -> None:
     "Check that each of the properties match"
@@ -53,6 +54,7 @@ def test_stacked_demo() -> None:
     assert mod.p1.value == 5
     assert mod.non_param == 10
 
+    print(np)
     assert np["p1"].value == 5
     assert np["a.p2"].value == 10
     assert np["b.c.p3"].value == 15
